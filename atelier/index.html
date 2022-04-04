@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'>
+  <head>
+    <title>Atelier YunoHost ~ JDLL 2022</title>
+  </head>
+  <body>
+    <h1>Bienvenue !</h1>
+    <p>Lors de cet atelier, vous allez découvrir comment vous connecter à un serveur privé virtuel neuf et comment installer et utiliser YunoHost.</p>
+
+    <h2>Se connecter au serveur</h2>
+    <p>
+      Ouvrez le Terminal. (oui, c'est la ligne de commande, n'ayez pas peur !)
+      Gardez à la fois le navigateur et le terminal à l'écran. Lancez les commandes une fois tapées dans le terminal avec la touche Entrée.
+    </p>
+    <p>
+      Vous allez télécharger une clé dite SSH, qui est une méthode d'authentification plus sécurisée qu'un simple mot de passe.
+      Copiez-collez le code ci-dessous dans le terminal.
+    </p>
+    <code>
+      mkdir -p ~/.ssh
+      <br />
+      curl https://&lt;LIEN VERS LA CLE PRIVEE&gt; -o ~/.ssh/jdll
+    </code>
+    <p>
+      Protégez votre clé :
+    </p>
+    <code>
+      chmod 600 ~/.ssh/jdll
+    </code>
+    <p>
+      Votre hôte vous a normalement donné l'adresse IP du serveur qui vous est alloué pour cet atelier.
+      Remplacez-la dans la commande ci-dessous, à la place de <code>ADR.ESS.EIP.DU.SRV</code>.
+    </p>
+    <code>
+      ssh root@ADR.ESS.EIP.DU.SRV -i ~/.ssh/jdll
+    </code>
+    <p>
+      &Agrave; la question <code>Are you sure you want to continue connecting (yes/no/[fingerprint])?"</code>, répondez <code>yes</code>.
+    </p>
+    <p>
+      Le terminal devrait se vider et vous montrer une nouvelle invite de commande.
+    </p>
+
+    <h2>Installer YunoHost sur une Linux Debian</h2>
+    <p>
+      Ouf ! Nous avons enfin rattaché nos wagons à ceux d'une installation classique de YunoHost.
+    </p>
+    <p>
+      Vous pouvez suivre <a target="_blank" href="https://yunohost.org/en/install/hardware:vps_debian">notre documentation</a> pour les serveurs distants jusqu'à l'étape de post-installation.
+    </p>
+    <p>
+      Sinon, pour faire simple, téléchargez et exécutez le script d'installation avec la commande ci-dessous.
+    </p>
+    <code>
+      curl https://install.yunohost.org | bash
+    </code>
+    <p>
+      Si le script d'installation vous pose des questions, répondez Oui.
+    </p>
+
+    <h2>Procéder à la post-installation</h2>
+    <p>
+      Une fois que vous récupérez l'accès au terminal, vous pouvez finaliser votre installation.
+      Au choix:
+    </p>
+    <ul>
+      <li>Restez dans le terminal et laissez-vous guider après avoir lancé la commande <code>yunohost tools postinstall</code></li>
+      <li>Entrez l'adresse IP du serveur dans la barre d'adresse du navigateur, ignorez l'avertissement de sécurité, et laissez-vous guider.</li>
+    </ul>
+    <p>
+      Lors du choix du nom de domaine, que vous n'avez pas, choisissez-en tel que <code>jdll2022a.ynh.fr</code>
+    </p>
+
+    <h2>Utilisez YunoHost!</h2>
+    <ol>
+      <li>Créez votre premier utilisateur</li>
+      <li>Installez votre première app (Nextcloud, Wordpress...)</li>
+      <li>Explorez l'interface d'administration et celle de vos comptes</li>
+      <li>...</li>
+    </ol>
+
+    <hr/>
+
+    <p>Bravo ! En récompense, voici une photo aléatoire de CHATONS:</p>
+    <img src="https://thecatapi.com/api/images/get?format=src&type=gif">
+  </body>
+</html>
